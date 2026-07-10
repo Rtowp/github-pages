@@ -1,0 +1,130 @@
+<section id="portfolio" class="portfolio-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">05 / STUDI KASUS</span>
+      <h2>Portofolio Kampanye Kreatif</h2>
+      <p class="section-desc">Eksplorasi beberapa proyek pilihan yang membuktikan pertumbuhan performa media sosial, interaksi audiens, serta konversi penjualan secara nyata.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="portfolio-filters" id="portfolioFilters">
+      <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+      <button class="filter-btn" data-filter="otomax">Otomax.store</button>
+      <button class="filter-btn" data-filter="meta">Meta Auto Wrap</button>
+      <button class="filter-btn" data-filter="otozip">Otozip</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid" id="portfolioGrid">
+      
+      <!-- Case 01: Otomax -->
+      <div class="case" data-category="otomax">
+        <div class="case-header">
+          <span class="case-num">01</span>
+          <span class="case-tag">Social Media Strategy</span>
+        </div>
+        <div class="case-thumb">
+          <img src="/images/portfolio_otomax.jpg" alt="Konten Otomax.store" class="case-img" referrerpolicy="no-referrer">
+          <div class="case-overlay">
+            <span class="view-case-btn">Lihat Detail</span>
+          </div>
+        </div>
+        <div class="case-content">
+          <div class="client">KLIEN — Otomax.store</div>
+          <h3>Menaikkan Brand Awareness Lewat Konten Edukasi</h3>
+          <p class="desc">Mengelola strategi konten bulanan di Instagram dan TikTok untuk Otomax.store. Berhasil meningkatkan interaksi audiens (engagement rate) sebesar 180% lewat infografis perawatan velg dan tips otomotif interaktif.</p>
+          <div class="case-stats">
+            <div class="stat-item">
+              <span class="stat-val">+180%</span>
+              <span class="stat-lbl">Engagement</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">2.4M</span>
+              <span class="stat-lbl">Reach</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 02: Meta Auto Wrap (Before/After Slider) -->
+      <div class="case" data-category="meta">
+        <div class="case-header">
+          <span class="case-num">02</span>
+          <span class="case-tag">Interactive Content</span>
+        </div>
+        
+        <!-- Interactive Before/After Slider Container -->
+        <div class="case-thumb slider-container" id="beforeAfterSlider">
+          <!-- After Image (Bottom) -->
+          <div class="slider-img img-after" style="background-image: url('/images/car_after_wrap.jpg');"></div>
+          
+          <!-- Before Image (Top, gets clipped) -->
+          <div class="slider-img img-before" id="sliderBeforeImg" style="background-image: url('/images/car_before_wrap.jpg');"></div>
+          
+          <!-- Interactive Bar & Handle -->
+          <div class="slider-bar" id="sliderBar">
+            <div class="slider-button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 19-7-7 7-7"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Range Input to drive sliding -->
+          <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderRange" aria-label="Geser untuk membandingkan sebelum dan sesudah wrapping">
+          
+          <!-- Badges -->
+          <span class="slider-badge badge-before">SEBELUM</span>
+          <span class="slider-badge badge-after">SESUDAH</span>
+        </div>
+        
+        <div class="case-content">
+          <div class="client">KLIEN — Meta Auto Wrap</div>
+          <h3>Kombinasi Konten Berbayar &amp; Organik</h3>
+          <p class="desc">Mengangkat performa TikTok secara organik lewat konten video beresolusi tinggi yang mendetailkan proses <em>wrapping</em> mobil sport premium. Menghasilkan puluhan <em>leads</em> hangat per bulan ke WhatsApp bisnis klien.</p>
+          <div class="case-stats">
+            <div class="stat-item">
+              <span class="stat-val">15k+</span>
+              <span class="stat-lbl">Followers Baru</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">340+</span>
+              <span class="stat-lbl">Leads Konsultasi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 03: Otozip -->
+      <div class="case" data-category="otozip">
+        <div class="case-header">
+          <span class="case-num">03</span>
+          <span class="case-tag">Influencer Marketing</span>
+        </div>
+        <div class="case-thumb">
+          <img src="/images/portfolio_otozip.jpg" alt="Konten Otozip" class="case-img" referrerpolicy="no-referrer">
+          <div class="case-overlay">
+            <span class="view-case-btn">Lihat Detail</span>
+          </div>
+        </div>
+        <div class="case-content">
+          <div class="client">KLIEN — Otozip</div>
+          <h3>Menjangkau Audiens Baru Lewat Reels</h3>
+          <p class="desc">Performa jangkauan dan kepercayaan konsumen didorong lewat kolaborasi micro-influencer otomotif terpilih. Pendekatan ulasan autentik berhasil melipatgandakan penjualan bulanan produk car mat premium.</p>
+          <div class="case-stats">
+            <div class="stat-item">
+              <span class="stat-val">3.5x</span>
+              <span class="stat-lbl">ROI Campaign</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">+120%</span>
+              <span class="stat-lbl">Monthly Sales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
