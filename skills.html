@@ -4,73 +4,47 @@
     <div class="eyebrow">05 / Kemampuan</div>
     <h2 class="sec-title">Skill Set &amp; Kompetensi</h2>
     
-    <!-- CSS Tambahan agar tampilan list skill rapi dan modern -->
+    <!-- CSS Khusus untuk Tampilan Satu Kolom Clean & Tag Style -->
     <style>
-      .skill-list-container {
+      .skills-clean-container {
+        margin-top: 40px;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 12px;
-        margin-top: 20px;
+        justify-content: flex-start;
       }
-      .skill-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      .skill-tag {
         font-family: var(--font-mono, monospace);
         font-size: 0.95rem;
-        padding: 6px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        padding: 10px 18px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
       }
-      .skill-icon {
-        color: #FCA311; /* Warna aksen emas/kuning */
-        font-size: 1.1rem;
+      .skill-tag:hover {
+        background: #FCA311; /* Warna aksen emas/kuning saat di-hover */
+        color: #0D1B2A; /* Warna teks gelap kontras saat di-hover */
+        border-color: #FCA311;
+        transform: translateY(-2px);
       }
     </style>
 
-    <div class="skill-cards" style="margin-top:36px;">
-      
-      <!-- Kategori 1 -->
-      <div class="skill-card">
-        <h3>Strategi &amp; Konten</h3>
-        <p>Merancang arah konten dan menjaga konsistensi brand di tiap platform.</p>
-        
-        <div class="skill-list-container">
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>Social Media Strategy</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>Content Planning &amp; Ideation</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>Copywriting &amp; Scriptwriting</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Kategori 2 -->
-      <div class="skill-card">
-        <h3>Produksi &amp; Kreatif</h3>
-        <p>Mengeksekusi ide jadi konten visual berkualitas dan siap tayang.</p>
-        
-        <div class="skill-list-container">
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>Short-Form Video Production (TikTok/Reels)</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>Video &amp; Photo Editing</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon">⚡</span>
-            <span>SEO &amp; Trend Optimization</span>
-          </div>
-        </div>
-      </div>
-
+    <!-- Daftar Skill Satu Kolom / Flex Wrap Clean -->
+    <div class="skills-clean-container">
+      <div class="skill-tag">Social Media Strategy</div>
+      <div class="skill-tag">Content Creation</div>
+      <div class="skill-tag">Pembuatan Website (Web Development)</div>
+      <div class="skill-tag">Desain Grafis &amp; Visual Editing</div>
+      <div class="skill-tag">Video Editing (TikTok/Reels)</div>
+      <div class="skill-tag">Copywriting &amp; Penulisan Skrip</div>
+      <div class="skill-tag">Branding &amp; Digital Marketing</div>
+      <div class="skill-tag">Multi-Brand Management</div>
+      <div class="skill-tag">Pemanfaatan AI Tools (Creative &amp; Optimization)</div>
+      <div class="skill-tag">Analisis Performa Konten</div>
+      <div class="skill-tag">Storytelling Visual</div>
     </div>
+
   </div>
 </section>
