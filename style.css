@@ -35,25 +35,85 @@
   .ph-box span{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--ink-soft); background:var(--card); padding:4px 8px; border:1px solid var(--line); }
 
   /* ---------- NAV ---------- */
-  header{ position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--line); }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 32px; }
-  .logo{ font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem; text-decoration:none; }
-  .logo span{ color:var(--gold); }
-  .navlinks{ display:flex; align-items:center; gap:28px; list-style:none; }
-  .navlinks a{ text-decoration:none; font-size:0.9rem; font-weight:500; color:var(--ink-soft); }
-  .navlinks a:hover{ color:var(--ink); }
-  .theme-toggle{
-    display:flex; align-items:center; gap:6px; background:none; border:1px solid var(--line);
-    border-radius:20px; padding:8px 14px; cursor:pointer; color:var(--ink); font-size:0.76rem;
-  }
-  .theme-toggle:hover{ background:var(--card); }
-  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; }
-  @media (max-width:820px){
-    .navlinks{ position:absolute; top:100%; left:0; right:0; background:var(--paper); flex-direction:column; align-items:flex-start; padding:20px 32px 28px; border-bottom:1px solid var(--line); display:none; gap:16px; }
-    .navlinks.open{ display:flex; }
-    .nav-toggle{ display:block; }
-  }
+ /* ==========================================================================
+   DROPDOWN UNTUK NAVBAR LAMA
+   ========================================================================== */
+.dropdown {
+    position: relative;
+}
 
+.dropdown .arrow {
+    font-size: 0.65rem;
+    margin-left: 2px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Kotak list dropwdown di bawah menu projek */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: #1B263B; /* Warna box dropdown */
+    min-width: 170px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 8px 0;
+    list-style: none;
+    border: 1px solid rgba(252, 163, 17, 0.15); /* Aksen tipis emas */
+    z-index: 1010;
+}
+
+.dropdown-content li {
+    width: 100%;
+    margin: 0; /* Reset margin bawaan navlinks lama */
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #E0E1DD !important;
+    text-align: left;
+    white-space: nowrap;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content li a:hover {
+    background-color: rgba(252, 163, 17, 0.1);
+    color: #FCA311 !important; /* Teks berubah kuning saat di-hover */
+}
+
+/* Logika Hover: Munculkan menu & putar panah kecilnya */
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: slideDropdown 0.3s ease forwards;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+    color: #FCA311;
+}
+
+/* Efek transisi meluncur ke atas sedikit saat muncul */
+@keyframes slideDropdown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* Pastikan smooth scroll aktif saat link diklik */
+html {
+    scroll-behavior: smooth;
+}
   /* ---------- HERO ---------- */
   .hero{ padding:80px 0 100px; }
   .badge-pill{
