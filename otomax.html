@@ -1,43 +1,81 @@
-<!-- 5. Bagian Contoh Video Konten (Edukasi vs Ads) -->
+<!-- ========== SECTION OTOMAX KPI ========== -->
+<section id="otomax-kpi" class="brand-section">
+  <!-- Elemen .wrap di bawah ini memicu max-width 1140px & margin 0 auto dari CSS aslimu -->
+  <div class="wrap reveal">
+    
+    <!-- 1. Bagian Angka Performa KPI -->
     <div class="sub-block">
-      <h3 class="sub-label">Featured Video Content</h3>
+      <h3 class="sub-label">KPI (DATA PERFORMA 2025)</h3>
+      <!-- Style flexbox tambahan dipasang inline untuk memaksa grid stat-cell terdistribusi seimbang -->
+      <div class="stat-strip" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1px; background: var(--line);">
+        <div class="stat-cell" style="flex: 1; min-width: 160px;"><div class="num">2,4Jt+</div><div class="lbl">TOTAL TAYANGAN</div></div>
+        <div class="stat-cell" style="flex: 1; min-width: 160px;"><div class="num">83,3%</div><div class="lbl">BUKAN PENGIKUT</div></div>
+        <div class="stat-cell" style="flex: 1; min-width: 160px;"><div class="num">88Rb</div><div class="lbl">TOTAL FOLLOWERS</div></div>
+        <div class="stat-cell" style="flex: 1; min-width: 160px;"><div class="num">+227%</div><div class="lbl">KENAIKAN JANGKAUAN</div></div>
+      </div>
+    </div>
+
+    <!-- 2. Grafik Bar Chart (Diposisikan Rata Tengah) -->
+    <div class="sub-block" style="text-align: center; margin: 30px 0;">
+      <!-- Gambar dikunci menggunakan margin auto agar sejajar tengah dengan teks -->
+      <img src="grid_chart.jpg" alt="Grafik Performa Otomax" style="width: 100%; max-width: 900px; margin: 0 auto; border-radius: var(--radius); border: 1px solid var(--line);">
+      <small style="display: block; margin-top: 12px; color: var(--ink-soft); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-align: left;">
+        Berdasarkan Data Metrik Instagram Insights Resmi (Periode Agustus - Desember 2025).
+      </small>
+    </div>
+
+    <!-- 3. Bagian STRATEGY -->
+    <div class="sub-block">
+      <h3 class="sub-label">STRATEGY</h3>
+      <p style="text-align: justify; max-width: 100%;">
+        Pendekatan saya di Otomax fokus pada konten edukatif, bukan hard-selling. Tiap carousel dan reel dirancang untuk menjawab pertanyaan nyata calon pembeli velg & ban — ukuran, offset, PCD, cara baca spek — dengan tone "konsultan yang paham", bukan sales yang agresif. Pendekatan yang sama saya terapkan untuk konten edukasi seputar ban & velg mobil listrik (EV), demi menjaga posisi brand yang netral dan informatif.
+      </p>
+    </div>
+
+    <!-- 4. Bagian DATA & INSIGHT BREAKDOWN -->
+    <div class="sub-block">
+      <h3 class="sub-label">DATA & INSIGHT BREAKDOWN (2025)</h3>
+      <ul style="padding-left: 20px; text-align: justify; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.7;">
+        <li style="margin-bottom: 12px;"><strong>Puncak Jangkauan Organik (November 2025):</strong> Menghasilkan total 975.000 tayangan, melesat tajam sebesar +182% dari bulan sebelumnya. Didominasi oleh struktur konten berbasis tren modifikasi kaki-kaki mobil yang memicu interaksi tinggi, di mana 81% dari total audiens berasal dari non-followers (+227%).</li>
+        <li style="margin-bottom: 12px;"><strong>Validasi Pola Konten Viral (Agustus 2025):</strong> Fase awal strategi berhasil menembus angka 501.000 tayangan (+147% dari bulan Juli) dengan rasio penemuan akun baru dari non-followers sebesar 87%. Hal ini membuktikan bahwa algoritma video pendek (Reels) bekerja optimal merambah audiens target di luar basis pengikut yang sudah ada.</li>
+        <li style="margin-bottom: 12px;"><strong>Retensi Pengikut yang Sehat (Desember 2025):</strong> Setelah lonjakan besar di November, grafik penayangan bertumpu stabil di angka 582.000 tayangan dengan rasio non-followers sebesar 79%, namun berhasil memperkuat basis komunitas dengan total pertumbuhan pengikut bersih mencapai 88.000 followers (+467 pertumbuhan baru).</li>
+        <li style="margin-bottom: 12px;"><strong>Efisiensi Strategi:</strong> Komposisi distribusi penayangan menunjukkan performa organik yang sangat dominan, di mana sebanyak 83,3% dari total 2.432.913 tayangan murni digerakkan secara organik lewat penyusunan *hook* visual dan optimalisasi SEO konten, sementara porsi iklan berbayar (Ads) hanya berkontribusi minim sebesar 26,6%.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Bagian Contoh Video Konten (Edukasi vs Ads) - Dua Kolom Foto Kecil -->
+    <div class="sub-block">
+      <h3 class="sub-label">Sample Content Type</h3>
       
-      <!-- Menggunakan grid 2 kolom agar berjejer rapi di layar PC dan otomatis responsif turun di HP -->
-      <div class="portfolio-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 20px;">
+      <!-- Grid mini 2 kolom berdampingan dengan pembatas max-width agar tidak kebesaran -->
+      <div class="thumb-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 640px; margin-bottom: 24px;">
         
-        <!-- KOLOM 1: KONTEN EDUKASI (ORGANIK) -->
-        <!-- Silakan ganti '#' dengan link URL video edukasi Instagram/TikTok/Drive Anda -->
-        <a href="#" target="_blank" class="case" style="text-decoration: none; display: block;">
-          <div class="case-thumb">
-            <span class="case-tag">Organic Content</span>
-            <!-- Ganti 'thumb_edukasi.jpg' dengan file cover/thumbnail video edukasi Anda -->
-            <img src="thumb_edukasi.jpg" alt="Conten Edukasi Otomax" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
-          </div>
-          <div class="case-body">
-            <div class="case-client" style="color: var(--gold);">Engagement & Trust Building</div>
-            <h3 style="font-size: 1.15rem; margin-top: 4px;">Konten Edukasi Kaki-Kaki Mobil</h3>
-            <p style="font-size: 0.88rem; margin-bottom: 0; color: var(--ink-soft);">
-              Contoh produksi video edukasi mendalam seputar panduan fitment velg, offset, dan spesifikasi ban ban mobil listrik (EV). Berfokus membangun interaksi tinggi dan menjangkau audiens baru secara organik.
+        <!-- KOLOM KIRI: KONTEN UNTUK ANGETMEN (ENGAGEMENT/ULASAN) -->
+        <!-- Silakan ganti '#' dengan link URL video ulasan asli Anda -->
+        <a href="#" target="_blank" style="text-decoration: none; display: block; color: inherit;">
+          <img src="thumb_edukasi.jpg" alt="Konten Ulasan Edukasi" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="margin-top: 10px;">
+            <strong style="font-size: 0.85rem; color: var(--gold); display: block; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase;">Konten Ulasan</strong>
+            <p style="font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; margin-top: 4px; text-align: justify;">
+              Video ulasan produk dan edukasi mendalam mengenai fitment kaki-kaki mobil. Dibuat khusus untuk memicu interaksi, menaikkan engagement, dan membangun trust audiens secara organik.
             </p>
           </div>
         </a>
 
-        <!-- KOLOM 2: KONTEN IKLAN (PAID ADS) -->
-        <!-- Silakan ganti '#' dengan link URL video iklan/ads Anda -->
-        <a href="#" target="_blank" class="case" style="text-decoration: none; display: block;">
-          <div class="case-thumb">
-            <span class="case-tag" style="background: var(--ink); color: var(--paper);">Paid Ads</span>
-            <!-- Ganti 'thumb_ads.jpg' dengan file cover/thumbnail video ads Anda -->
-            <img src="thumb_ads.jpg" alt="Konten Iklan Otomax" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
-          </div>
-          <div class="case-body">
-            <div class="case-client" style="color: var(--gold);">Sales & Conversion</div>
-            <h3 style="font-size: 1.15rem; margin-top: 4px;">Konten Iklan Penjualan Velg</h3>
-            <p style="font-size: 0.88rem; margin-bottom: 0; color: var(--ink-soft);">
-              Contoh video komersial dengan hook visual yang kuat dan penawaran terukur. Dirancang khusus untuk kebutuhan distribusi iklan berbayar (Ads) demi mendorong konversi dan meningkatkan penjualan produk secara langsung.
+        <!-- KOLOM KANAN: KONTEN UNTUK ADS (IKLAN/PENJUALAN) -->
+        <!-- Silakan ganti '#' dengan link URL video ads asli Anda -->
+        <a href="#" target="_blank" style="text-decoration: none; display: block; color: inherit;">
+          <img src="thumb_ads.jpg" alt="Konten Iklan Penjualan" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="margin-top: 10px;">
+            <strong style="font-size: 0.85rem; color: var(--gold); display: block; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase;">Konten Iklan Ads</strong>
+            <p style="font-size: 0.82rem; color: var(--ink-soft); line-height: 1.4; margin-top: 4px; text-align: justify;">
+              Video komersial dengan penekanan pada promosi dan hard-selling produk. Menggunakan hook visual yang kuat, dirancang untuk kebutuhan distribusi paid ads demi meningkatkan penjualan langsung.
             </p>
           </div>
         </a>
 
       </div>
     </div>
+
+  </div>
+</section>
