@@ -34,9 +34,87 @@
   }
   .ph-box span{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--ink-soft); background:var(--card); padding:4px 8px; border:1px solid var(--line); }
 
-  /* ---------- NAV ---------- */
+ /* ---------- NAV ---------- */
 /* ==========================================================================
-   DROPDOWN UNTUK NAVBAR LAMA (DIOPTIMALKAN DENGAN VARIABEL TEMA)
+   LAYOUT NAVBAR UTAMA
+   ========================================================================== */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo kiri, Menu tengah, Tombol kanan */
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 20px 32px;
+    background-color: transparent; /* Membiarkan warna --paper dari body yang terlihat */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.nav .logo span {
+    color: var(--gold); /* Titik logo jadi warna emas */
+}
+
+.navlinks {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* Jarak antar menu */
+    list-style: none;
+}
+
+.navlinks a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+}
+
+.navlinks a:hover {
+    color: var(--gold);
+}
+
+/* Tombol MODE (⚡ MODE) */
+.theme-toggle {
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+}
+
+/* Tombol Hamburger (Mobile) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 4px;
+}
+
+/* ==========================================================================
+   LOGIKA & STYLING DROPDOWN MINGGAT KE BAWAH
    ========================================================================== */
 .dropdown {
     position: relative;
@@ -49,31 +127,29 @@
     transition: transform 0.3s ease;
 }
 
-/* Kotak list dropdown di bawah menu projek */
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background-color: var(--card); /* Mengikuti warna card tema aktif */
+    background-color: var(--card);
     min-width: 170px;
     box-shadow: 0 10px 25px rgba(34, 29, 21, 0.15);
-    border-radius: var(--radius); /* Mengikuti radius aslimu */
+    border-radius: var(--radius);
     padding: 8px 0;
     list-style: none;
-    border: 1px solid var(--line); /* Mengikuti line border aslimu */
+    border: 1px solid var(--line);
     z-index: 1010;
 }
 
-/* Penyesuaian shadow saat masuk ke dark theme */
 body.dark-theme .dropdown-content {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-content li {
     width: 100%;
-    margin: 0; /* Reset margin bawaan navlinks lama */
+    margin: 0;
 }
 
 .dropdown-content li a {
@@ -81,18 +157,17 @@ body.dark-theme .dropdown-content {
     padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--ink) !important; /* Mengikuti warna font utama tema aktif */
+    color: var(--ink) !important;
     text-align: left;
     white-space: nowrap;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
-    background-color: var(--gold-soft); /* Mengikuti warna gold soft aslimu */
-    color: var(--gold) !important; /* Teks berubah menjadi gold saat di-hover */
+    background-color: var(--gold-soft);
+    color: var(--gold) !important;
 }
 
-/* Logika Hover: Munculkan menu & putar panah kecilnya */
 .dropdown:hover .dropdown-content {
     display: block;
     animation: slideDropdown 0.3s ease forwards;
@@ -103,7 +178,6 @@ body.dark-theme .dropdown-content {
     color: var(--gold);
 }
 
-/* Efek transisi meluncur ke atas sedikit saat muncul */
 @keyframes slideDropdown {
     from {
         opacity: 0;
@@ -113,6 +187,12 @@ body.dark-theme .dropdown-content {
         opacity: 1;
         transform: translateX(-50%) translateY(5px);
     }
+}
+
+/* Responsive Breakpoint Awal */
+@media (max-width: 768px) {
+    .navlinks { display: none; }
+    .nav-toggle { display: block; }
 }
   /* ---------- HERO ---------- */
   .hero{ padding:80px 0 100px; }
