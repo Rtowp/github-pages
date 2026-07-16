@@ -35,8 +35,9 @@
   .ph-box span{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--ink-soft); background:var(--card); padding:4px 8px; border:1px solid var(--line); }
 
   /* ---------- NAV ---------- */
- /* ==========================================================================
-   DROPDOWN UNTUK NAVBAR LAMA
+ /* ---------- NAV ---------- */
+/* ==========================================================================
+   DROPDOWN UNTUK NAVBAR LAMA (DIOPTIMALKAN DENGAN VARIABEL TEMA)
    ========================================================================== */
 .dropdown {
     position: relative;
@@ -44,26 +45,31 @@
 
 .dropdown .arrow {
     font-size: 0.65rem;
-    margin-left: 2px;
+    margin-left: 4px;
     display: inline-block;
     transition: transform 0.3s ease;
 }
 
-/* Kotak list dropwdown di bawah menu projek */
+/* Kotak list dropdown di bawah menu projek */
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background-color: #1B263B; /* Warna box dropdown */
+    background-color: var(--card); /* Mengikuti warna card tema aktif */
     min-width: 170px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(34, 29, 21, 0.15);
+    border-radius: var(--radius); /* Mengikuti radius aslimu */
     padding: 8px 0;
     list-style: none;
-    border: 1px solid rgba(252, 163, 17, 0.15); /* Aksen tipis emas */
+    border: 1px solid var(--line); /* Mengikuti line border aslimu */
     z-index: 1010;
+}
+
+/* Penyesuaian shadow saat masuk ke dark theme */
+body.dark-theme .dropdown-content {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-content li {
@@ -76,15 +82,15 @@
     padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #E0E1DD !important;
+    color: var(--ink) !important; /* Mengikuti warna font utama tema aktif */
     text-align: left;
     white-space: nowrap;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
-    background-color: rgba(252, 163, 17, 0.1);
-    color: #FCA311 !important; /* Teks berubah kuning saat di-hover */
+    background-color: var(--gold-soft); /* Mengikuti warna gold soft aslimu */
+    color: var(--gold) !important; /* Teks berubah menjadi gold saat di-hover */
 }
 
 /* Logika Hover: Munculkan menu & putar panah kecilnya */
@@ -95,7 +101,7 @@
 
 .dropdown:hover .arrow {
     transform: rotate(180deg);
-    color: #FCA311;
+    color: var(--gold);
 }
 
 /* Efek transisi meluncur ke atas sedikit saat muncul */
@@ -108,11 +114,6 @@
         opacity: 1;
         transform: translateX(-50%) translateY(5px);
     }
-}
-
-/* Pastikan smooth scroll aktif saat link diklik */
-html {
-    scroll-behavior: smooth;
 }
   /* ---------- HERO ---------- */
   .hero{ padding:80px 0 100px; }
