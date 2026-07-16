@@ -1,21 +1,29 @@
-<header>
-  <nav class="nav">
-    <a href="#top" class="logo">Galih Pratama<span>.</span></a>
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#about">Tentang</a></li>
-      <li><a href="#otomax">Otomax</a></li>
-      <li><a href="#otozip">Otozip</a></li>
-      <li><a href="#metawrap">Meta Auto Wrap</a></li>
-      <li><a href="#skills">Skill</a></li>
-      <li><a href="#contact">Kontak</a></li>
-    </ul>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema terang/gelap">
-        <span class="theme-icon">⚡</span><span class="theme-text mono">MODE</span>
-      </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
-        <svg width="20" height="14" viewBox="0 0 22 16" fill="none"><path d="M0 1H22M0 8H22M0 15H22" stroke="currentColor" stroke-width="2"/></svg>
-      </button>
-    </div>
-  </nav>
-</header>
+<nav class="nav">
+  <a href="#top" class="logo">Galih Pratama<span>.</span></a>
+  
+  <ul class="navlinks" id="navlinks">
+    <li><a href="#about">Tentang</a></li>
+    
+    <!-- DROPDOWN PROJEK BARU -->
+    <li class="dropdown">
+      <a href="#projects" class="dropdown-trigger">Projek <span class="arrow">▼</span></a>
+      <ul class="dropdown-content">
+        <li><a href="#otomax">Otomax</a></li>
+        <li><a href="#otozip">Otozip</a></li>
+        <li><a href="#metawrap">Meta Auto Wrap</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="#skills">Skill</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+
+  <div style="display:flex; align-items:center; gap:10px;">
+    <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema terang/gelap">
+      <span class="theme-icon">⚡</span><span class="theme-text mono">MODE</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+      <svg width="20" height="14" viewBox="0 0 22 16" fill="none"><path d="M0 1H22M0 8H22M0 15H22" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+  </div>
+</nav>
