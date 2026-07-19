@@ -1,10 +1,10 @@
-<!-- SKILLS -->
+<!-- ========== SECTION SKILLS ========== -->
 <section id="skills">
   <div class="wrap reveal">
     <div class="eyebrow">05 / Kemampuan</div>
     <h2 class="sec-title">Skill Set &amp; Kompetensi</h2>
     
-    <!-- CSS Khusus untuk Tampilan Satu Kolom Clean & Tag Style -->
+    <!-- CSS Khusus Adaptif Mode Terang & Gelap -->
     <style>
       .skills-clean-container {
         margin-top: 40px;
@@ -13,21 +13,47 @@
         gap: 12px;
         justify-content: flex-start;
       }
+      
+      /* --- DEFAULT: MODE TERANG (Light Mode) --- */
       .skill-tag {
         font-family: var(--font-mono, monospace);
         font-size: 0.95rem;
-        background: rgba(255, 255, 255, 0.05);
-        color: #ffffff;
+        background: rgba(13, 27, 42, 0.05); /* Latar belakang tipis gelap */
+        color: #0D1B2A; /* Teks Deep Navy agar kontras di latar krem */
         padding: 10px 18px;
         border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(13, 27, 42, 0.15);
         transition: all 0.3s ease;
+        cursor: default;
       }
+      
+      /* --- OTOMATIS: MODE GELAP (Dark Mode) --- */
+      /* Menggunakan media query sistem bawaan browser ATAU deteksi class dark pada body */
+      @media (prefers-color-scheme: dark) {
+        .skill-tag {
+          background: rgba(255, 255, 255, 0.05); /* Kembali ke latar putih transparan tipis */
+          color: #ffffff; /* Teks putih agar menyala di background gelap */
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+      
+      /* Jika web kamu menggunakan tombol switch class .dark / .dark-mode di tag body/html */
+      body.dark .skill-tag,
+      body.dark-mode .skill-tag,
+      html.dark .skill-tag,
+      html.dark-mode .skill-tag {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      /* --- EFEK HOVER (Sama untuk kedua mode, menggunakan warna aksen brand) --- */
       .skill-tag:hover {
-        background: #FCA311; /* Warna aksen emas/kuning saat di-hover */
-        color: #0D1B2A; /* Warna teks gelap kontras saat di-hover */
+        background: #FCA311; /* Kuning keemasan Otomax */
+        color: #0D1B2A; /* Teks otomatis jadi Deep Navy agar tetap terbaca jelas */
         border-color: #FCA311;
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(252, 163, 17, 0.3);
       }
     </style>
 
