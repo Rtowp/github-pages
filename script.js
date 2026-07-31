@@ -123,30 +123,11 @@ const projectsData = {
     role: 'Content Creator & Strategist',
     subtitle: 'Layanan wrapping & detailing mobil premium (Pet Series, PPF Protection, Custom Color Wrap).',
     desc: 'Menjadi salah satu talent dalam produksi konten Meta Auto Wrap yang menampilkan layanan wrapping dan detailing mobil premium. Berkontribusi dalam penyampaian pesan brand melalui konten visual yang informatif dan menarik untuk media sosial.',
-    kpi: [
-      { num: '467K+', lbl: 'REELS VIEWS' },
-      { num: '92,4%', lbl: 'NON-FOLLOWERS' },
-      { num: '14.8K+', lbl: 'TOTAL INTERAKSI' },
-      { num: '+320%', lbl: 'LEADS WA' }
-    ],
     gridReels: [
       { img: 'assets/reel-5kelebihan.jpg', title: '5 KELEBIHAN WRAPPING', views: '876' },
       { img: 'assets/reel-pinklucu.jpg', title: 'PINK LUCU GINI, BUKAN CAT LOH!', views: '140K' },
       { img: 'assets/reel-bosenwarna.jpg', title: 'BOSEN SAMA WARNA MOBIL STANDAR?', views: '47K' },
       { img: 'assets/reel-petseries.jpg', title: 'PET SERIES FREE COATING!', views: '13.6K' }
-    ],
-    strategyText: 'Strategi visual berfokus pada estetika tinggi, ketelitian pengerjaan wrapping, dan edukasi seputar perlindungan cat asli mobil. Penyampaian pesan berfokus pada daya tahan bahan Pet Series, daya tahan terhadap cuaca, dan hasil akhir yang presisi.',
-    insights: [
-      { title: 'Dominasi Reels Organik', text: '92.4% penayangan murni dari audiens non-followers yang tertarik dengan transformasi warna mobil.' },
-      { title: 'Lonjakan Pesan Masuk WA', text: 'Konten "5 Kelebihan Wrapping" berhasil mendatangkan lonjakan 320% leads konsultasi di WhatsApp.' },
-      { title: 'Retensi Penonton Tinggi', text: 'Durasi tonton rata-rata di atas 85% karena visual transformasi before-after yang memanjakan mata.' },
-      { title: 'Targeting Segmen Premium', text: 'Menjangkau pemilik mobil baru dan luxury sedan di area Jabodetabek.' }
-    ],
-    samples: [
-      { img: 'assets/reel-5kelebihan.jpg', type: 'KONTEN EDUKASI & BRANDING', caption: 'Video edukasi 30 detik yang membahas 5 kelebihan wrapping dibanding cat ulang.' },
-      { img: 'assets/reel-pinklucu.jpg', type: 'KONTEN PROMOSI CUSTOM COLOR', caption: 'Showcase color wrap custom pink pastel pada mobil listrik modern.' },
-      { img: 'assets/reel-bosenwarna.jpg', type: 'KONTEN CAROUSEL SOLUSI', caption: 'Carousel solusi ganti warna mobil tanpa merusak garansi cat ori.' },
-      { img: 'assets/reel-petseries.jpg', type: 'KONTEN PROMOSI ADS', caption: 'Penawaran promosi bonus coating untuk pengerjaan wrap Pet Series.' }
     ]
   }
 };
@@ -156,13 +137,38 @@ function renderProjectCard(key) {
   const container = document.getElementById('activeProjectCard');
   if (!data || !container) return;
 
+  // Special layout for Meta Auto Wrap (matching Reference Image 3)
+  if (key === 'metawrap' || (data.gridReels && !data.kpi)) {
+    container.innerHTML = `
+      <div class="project-top-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:start;">
+        <div class="content-cards-scroll" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          ${data.gridReels.map(r => `
+            <div class="content-reel-card" style="height:210px; margin:0;">
+              <img src="${r.img}" alt="${r.title}">
+              <div class="reel-card-overlay">
+                <span class="reel-views-pill">▶ ${r.views}</span>
+                <span class="reel-card-title">${r.title}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="padding-top:10px;">
+          <span class="cs-brand-sub">${data.brandSub}</span>
+          <h2 class="brand-main-title" style="font-size:2.4rem; margin:6px 0 14px 0; text-transform:uppercase;">${data.title}</h2>
+          <p class="project-desc-text" style="font-size:0.95rem; line-height:1.7; color:var(--text-body);">${data.desc}</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
   // KPI boxes HTML
-  const kpiHTML = data.kpi.map(k => `
+  const kpiHTML = data.kpi ? data.kpi.map(k => `
     <div class="cs-kpi-card">
       <div class="cs-kpi-num">${k.num}</div>
       <div class="cs-kpi-lbl">${k.lbl}</div>
     </div>
-  `).join('');
+  `).join('') : '';
 
   // Dashboard image HTML if available
   const dashHTML = data.dashboardImg ? `
@@ -171,43 +177,13 @@ function renderProjectCard(key) {
     </div>
   ` : '';
 
-  // Grid reels HTML if available (Meta Auto Wrap special layout)
-  const gridReelsHTML = data.gridReels ? `
-    <div class="project-top-row" style="margin-bottom:24px;">
-      <div class="content-cards-scroll" style="grid-template-columns:1fr 1fr; gap:12px;">
-        ${data.gridReels.map(r => `
-          <div class="content-reel-card" style="height:170px;">
-            <img src="${r.img}" alt="${r.title}">
-            <div class="reel-card-overlay">
-              <span class="reel-views-pill">▶ ${r.views}</span>
-              <span class="reel-card-title">${r.title}</span>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div>
-        <span class="cs-brand-sub">${data.brandSub}</span>
-        <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
-        <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
-        <p class="project-desc-text">${data.desc}</p>
-      </div>
-    </div>
-  ` : `
-    <div>
-      <span class="cs-brand-sub">${data.brandSub}</span>
-      <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
-      <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
-      <p class="project-desc-text">${data.desc}</p>
-    </div>
-  `;
-
   // Insights bullet list HTML
-  const insightsHTML = data.insights.map(ins => `
+  const insightsHTML = data.insights ? data.insights.map(ins => `
     <li><strong>${ins.title}:</strong> ${ins.text}</li>
-  `).join('');
+  `).join('') : '';
 
   // Samples grid HTML
-  const samplesHTML = data.samples.map(s => `
+  const samplesHTML = data.samples ? data.samples.map(s => `
     <div class="cs-sample-card">
       <img src="${s.img}" alt="${s.type}" class="cs-sample-img">
       <div class="cs-sample-body">
@@ -215,24 +191,25 @@ function renderProjectCard(key) {
         <div class="cs-sample-caption">${s.caption}</div>
       </div>
     </div>
-  `).join('');
+  `).join('') : '';
 
   container.innerHTML = `
-    ${gridReelsHTML}
+    <div>
+      <span class="cs-brand-sub">${data.brandSub}</span>
+      <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
+      <p class="project-desc-text">${data.desc}</p>
+    </div>
 
-    <div class="cs-section-label">KPI (REAL TIME PERFORMA)</div>
-    <div class="cs-kpi-grid">${kpiHTML}</div>
+    ${data.kpi ? `<div class="cs-section-label">KPI (REAL TIME PERFORMA)</div><div class="cs-kpi-grid">${kpiHTML}</div>` : ''}
 
     ${dashHTML}
 
-    <div class="cs-section-label">STRATEGY</div>
-    <p class="project-desc-text">${data.strategyText}</p>
+    ${data.strategyText ? `<div class="cs-section-label">STRATEGY</div><p class="project-desc-text">${data.strategyText}</p>` : ''}
 
-    <div class="cs-section-label">DATA &amp; INSIGHT BREAKDOWN</div>
-    <ul class="cs-insights-list">${insightsHTML}</ul>
+    ${data.insights ? `<div class="cs-section-label">DATA &amp; INSIGHT BREAKDOWN</div><ul class="cs-insights-list">${insightsHTML}</ul>` : ''}
 
-    <div class="cs-section-label">SAMPLE CONTENT TYPE</div>
-    <div class="cs-samples-grid">${samplesHTML}</div>
+    ${data.samples ? `<div class="cs-section-label">SAMPLE CONTENT TYPE</div><div class="cs-samples-grid">${samplesHTML}</div>` : ''}
   `;
 }
 
