@@ -84,8 +84,8 @@ const projectsData = {
       { title: 'Efisiensi Strategi', text: 'Komposisi distribusi penayangan menunjukkan performa organik yang sangat dominan, di mana sebanyak 83.3% dari total 2.422.912 tayangan murni digerakkan secara organik lewat penyusunan "hook" visual dan optimasi SEO konten, sementara porsi iklan berbayar (Ads) hanya berkontribusi minim sebesar 16.7%.' }
     ],
     samples: [
-      { img: 'assets/reel-mazda3hb.jpg', type: 'KONTEN ULASAN / EDUKASI', caption: 'Video ulasan produk dan edukasi mendalam mengenai fitment kaki-kaki mobil. Dibuat khusus untuk memicu interaksi, menaikkan engagement, dan membangun trust audiens secara organik.' },
-      { img: 'assets/reel-buruan-deh.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial dengan penekanan pada promosi dan penawaran terukur. Menggunakan hook visual yang kuat, dirancang untuk kebutuhan paid ads demi meningkatkan penjualan langsung.' }
+      { img: 'assets/reel-mazda3hb.jpg', type: 'KONTEN ULASAN / EDUKASI', caption: 'Video ulasan produk dan edukasi mendalam mengenai fitment kaki-kaki mobil. Dibuat khusus untuk memicu interaksi, menaikkan engagement, dan membangun trust audiens secara organik.', link: 'https://www.instagram.com/p/DMusQmCPx-5/' },
+      { img: 'assets/reel-buruan-deh.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial dengan penekanan pada promosi dan penawaran terukur. Menggunakan hook visual yang kuat, dirancang untuk kebutuhan paid ads demi meningkatkan penjualan langsung.', link: 'https://www.instagram.com/reels/DPMEpS4kYT_/' }
     ]
   },
 
@@ -111,9 +111,9 @@ const projectsData = {
       { title: 'Kualitas Interaksi & Tindakan Profil', text: 'Mampu mempertahankan 6.112 total interaksi aktif dengan dominasi interaksi Reels sebesar 67.4%. Efisiensi konten ini sukses mendorong konversi nyata berupa 11.677 kunjungan profil (Profile Visits) dan 902 ketukan tautan eksternal (External Link Taps) menuju WhatsApp/toko digital.' }
     ],
     samples: [
-      { img: 'assets/reel-otozip-van.jpg', type: 'KONTEN EDUKASI', caption: 'Video ulasan lokasi ban darurat dan tips berkendara untuk memicu interaksi tinggi serta menaikkan organic engagement secara konsisten.' },
-      { img: 'assets/reel-otozip-van.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial 24 jam dengan hook visual kuat dan penawaran terukur. Dirancang khusus untuk paid ads demi mendatangkan penjualan langsung.' },
-      { img: 'assets/otozip-threads.jpg', type: 'KONTEN THREADS', caption: 'Optimasi konten berbasis teks interaktif dan visual real-time di ekosistem Meta. Berfokus pada kecepatan ketepatan informasi untuk memperluas jangkauan brand.' }
+      { img: 'assets/reel-otozip-van.jpg', type: 'KONTEN EDUKASI', caption: 'Video ulasan lokasi ban darurat dan tips berkendara untuk memicu interaksi tinggi serta menaikkan organic engagement secara konsisten.', link: 'https://www.instagram.com/p/DZPdGB9iYmM/?img_index=1' },
+      { img: 'assets/reel-otozip-van.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial 24 jam dengan hook visual kuat dan penawaran terukur. Dirancang khusus untuk paid ads demi mendatangkan penjualan langsung.', link: 'https://www.instagram.com/reels/DVYRwu0EsP5/' },
+      { img: 'assets/otozip-threads.jpg', type: 'KONTEN THREADS', caption: 'Optimasi konten berbasis teks interaktif dan visual real-time di ekosistem Meta. Berfokus pada kecepatan ketepatan informasi untuk memperluas jangkauan brand.', link: 'https://www.threads.net/@otozip.id' }
     ]
   },
 
@@ -124,10 +124,10 @@ const projectsData = {
     subtitle: 'Layanan wrapping & detailing mobil premium (Pet Series, PPF Protection, Custom Color Wrap).',
     desc: 'Menjadi salah satu talent dalam produksi konten Meta Auto Wrap yang menampilkan layanan wrapping dan detailing mobil premium. Berkontribusi dalam penyampaian pesan brand melalui konten visual yang informatif dan menarik untuk media sosial.',
     gridReels: [
-      { img: 'assets/reel-5kelebihan.jpg', title: '5 KELEBIHAN WRAPPING', views: '876' },
-      { img: 'assets/reel-pinklucu.jpg', title: 'PINK LUCU GINI, BUKAN CAT LOH!', views: '140K' },
-      { img: 'assets/reel-bosenwarna.jpg', title: 'BOSEN SAMA WARNA MOBIL STANDAR?', views: '47K' },
-      { img: 'assets/reel-petseries.jpg', title: 'PET SERIES FREE COATING!', views: '13.6K' }
+      { img: 'assets/reel-5kelebihan.jpg', title: '5 KELEBIHAN WRAPPING', views: '876', link: 'https://www.instagram.com/metaautowrap/' },
+      { img: 'assets/reel-pinklucu.jpg', title: 'PINK LUCU GINI, BUKAN CAT LOH!', views: '140K', link: 'https://www.instagram.com/metaautowrap/' },
+      { img: 'assets/reel-bosenwarna.jpg', title: 'BOSEN SAMA WARNA MOBIL STANDAR?', views: '47K', link: 'https://www.instagram.com/metaautowrap/' },
+      { img: 'assets/reel-petseries.jpg', title: 'PET SERIES FREE COATING!', views: '13.6K', link: 'https://www.instagram.com/metaautowrap/' }
     ]
   }
 };
@@ -143,13 +143,13 @@ function renderProjectCard(key) {
       <div class="project-top-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:start;">
         <div class="content-cards-scroll" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
           ${data.gridReels.map(r => `
-            <div class="content-reel-card" style="height:210px; margin:0;">
+            <a href="${r.link}" target="_blank" rel="noopener" class="content-reel-card" style="height:210px; margin:0; text-decoration:none; display:block;">
               <img src="${r.img}" alt="${r.title}">
               <div class="reel-card-overlay">
                 <span class="reel-views-pill">▶ ${r.views}</span>
-                <span class="reel-card-title">${r.title}</span>
+                <span class="reel-card-title">${r.title} ↗</span>
               </div>
-            </div>
+            </a>
           `).join('')}
         </div>
         <div style="padding-top:10px;">
@@ -181,13 +181,16 @@ function renderProjectCard(key) {
   `).join('') : '';
 
   const samplesHTML = data.samples ? data.samples.map(s => `
-    <div class="cs-sample-card">
+    <a href="${s.link}" target="_blank" rel="noopener" class="cs-sample-card" style="text-decoration:none; color:inherit;">
       <img src="${s.img}" alt="${s.type}" class="cs-sample-img">
       <div class="cs-sample-body">
-        <div class="cs-sample-type">${s.type}</div>
+        <div class="cs-sample-type" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>${s.type}</span>
+          <span style="font-size:0.9rem;">↗</span>
+        </div>
         <div class="cs-sample-caption">${s.caption}</div>
       </div>
-    </div>
+    </a>
   `).join('') : '';
 
   container.innerHTML = `
@@ -206,7 +209,7 @@ function renderProjectCard(key) {
 
     ${data.insights ? `<div class="cs-section-label">DATA &amp; INSIGHT BREAKDOWN</div><ul class="cs-insights-list">${insightsHTML}</ul>` : ''}
 
-    ${data.samples ? `<div class="cs-section-label">SAMPLE CONTENT TYPE</div><div class="cs-samples-grid">${samplesHTML}</div>` : ''}
+    ${data.samples ? `<div class="cs-section-label">SAMPLE CONTENT TYPE (KLIK UNTUK BUKA LINK)</div><div class="cs-samples-grid">${samplesHTML}</div>` : ''}
   `;
 }
 
@@ -325,7 +328,8 @@ const modalCaseStudies = {
       { num: '14.8K+', lbl: 'LIKES & SHARES' },
       { num: '+320%', lbl: 'LEADS WA' }
     ],
-    desc: '<p><strong>Overview:</strong> Video edukasi berdurasi 30 detik yang membahas 5 kelebihan utama wrapping stiker dibanding pengecatan ulang mobil. Konten ini dirancang dengan hook visual menarik dan teks red-headline yang kontras.</p><p><strong>Key Takeaways:</strong> Menghasilkan lonjakan penayangan organik 467.000+ views dan mengonversi 320% lebih banyak pesan masuk di WhatsApp sales Meta Auto Wrap.</p>'
+    desc: '<p><strong>Overview:</strong> Video edukasi berdurasi 30 detik yang membahas 5 kelebihan utama wrapping stiker dibanding pengecatan ulang mobil. Konten ini dirancang dengan hook visual menarik dan teks red-headline yang kontras.</p><p><strong>Key Takeaways:</strong> Menghasilkan lonjakan penayangan organik 467.000+ views dan mengonversi 320% lebih banyak pesan masuk di WhatsApp sales Meta Auto Wrap.</p>',
+    link: 'https://www.instagram.com/metaautowrap/'
   },
   'PINK LUCU GINI, BUKAN CAT LOH!': {
     title: 'PINK LUCU GINI, BUKAN CAT LOH!',
@@ -336,7 +340,8 @@ const modalCaseStudies = {
       { num: '8.4K+', lbl: 'INTERAKSI' },
       { num: '+180%', lbl: 'ENGAGEMENT' }
     ],
-    desc: '<p><strong>Overview:</strong> Kampanye khusus mobil warna pink pastel custom wrap. Memperlihatkan estetika pengerjaan yang presisi serta perlindungan cat bawaan pabrik.</p>'
+    desc: '<p><strong>Overview:</strong> Kampanye khusus mobil warna pink pastel custom wrap. Memperlihatkan estetika pengerjaan yang presisi serta perlindungan cat bawaan pabrik.</p>',
+    link: 'https://www.instagram.com/metaautowrap/'
   },
   'BOSEN SAMA WARNA MOBIL STANDAR?': {
     title: 'BOSEN SAMA WARNA MOBIL STANDAR?',
@@ -347,7 +352,8 @@ const modalCaseStudies = {
       { num: '5.2K+', lbl: 'LIKES' },
       { num: '+140%', lbl: 'GROWTH' }
     ],
-    desc: '<p><strong>Overview:</strong> Format carousel yang memadukan solusi pergantian warna mobil tanpa merusak garansi cat original.</p>'
+    desc: '<p><strong>Overview:</strong> Format carousel yang memadukan solusi pergantian warna mobil tanpa merusak garansi cat original.</p>',
+    link: 'https://www.instagram.com/metaautowrap/'
   },
   'PET SERIES FREE COATING!': {
     title: 'PET SERIES FREE COATING CAMPAIGN',
@@ -358,7 +364,8 @@ const modalCaseStudies = {
       { num: '45+', lbl: 'BOOKING ANTREAN' },
       { num: '15.4%', lbl: 'CONVERSION' }
     ],
-    desc: '<p><strong>Overview:</strong> Penawaran bonus coating gratis untuk setiap pemasangan stiker Pet Series. Berhasil mengisi slot antrean pengerjaan dalam 14 hari.</p>'
+    desc: '<p><strong>Overview:</strong> Penawaran bonus coating gratis untuk setiap pemasangan stiker Pet Series. Berhasil mengisi slot antrean pengerjaan dalam 14 hari.</p>',
+    link: 'https://www.instagram.com/metaautowrap/'
   },
   'MAZDA 3 HB KAKI-KAKI RUMUS A-Z': {
     title: 'MAZDA 3 HB FITMENT & VELG GUIDE',
@@ -369,7 +376,29 @@ const modalCaseStudies = {
       { num: '12K+', lbl: 'SAVED & SHARED' },
       { num: '+220%', lbl: 'COMMUNITY ENGAGEMENT' }
     ],
-    desc: '<p><strong>Overview:</strong> Panduan komprehensif pemilihan velg & ban khusus Mazda 3 Hatchback agar presisi dan tidak ngaco. Menjadi acuan edukasi otomotif favorit komunitas.</p>'
+    desc: '<p><strong>Overview:</strong> Panduan komprehensif pemilihan velg & ban khusus Mazda 3 Hatchback agar presisi dan tidak ngaco. Menjadi acuan edukasi otomotif favorit komunitas.</p>',
+    link: 'https://www.instagram.com/p/DMusQmCPx-5/'
+  },
+  'MERCEDES S-CLASS BURUAN DEH!': {
+    title: 'MERCEDES S-CLASS ADS CAMPAIGN',
+    category: 'Otomax Store Commercial Reel',
+    stats: [
+      { num: '467K+', lbl: 'REELS VIEWS' },
+      { num: '83.3%', lbl: 'NON-FOLLOWERS' },
+      { num: '14.2K+', lbl: 'INTERAKSI' }
+    ],
+    desc: '<p><strong>Overview:</strong> Video komersial Reels dengan penekanan pada penawaran Mercedes S-Class secara eksklusif.</p>',
+    link: 'https://www.instagram.com/reels/DPMEpS4kYT_/'
+  },
+  'OTOZIP VAN 24 JAM CONGKEL': {
+    title: 'OTOZIP 24H EMERGENCY ADS',
+    category: 'Otozip Commercial Campaign',
+    stats: [
+      { num: '236K+', lbl: 'REELS VIEWS' },
+      { num: '63.4%', lbl: 'FYP TRAFFIC' }
+    ],
+    desc: '<p><strong>Overview:</strong> Video iklan layanan ganti ban panggilan 24 jam dengan hook darurat.</p>',
+    link: 'https://www.instagram.com/reels/DVYRwu0EsP5/'
   }
 };
 
@@ -383,12 +412,13 @@ function initCaseModal() {
 
   reelCards.forEach(card => {
     card.addEventListener('click', () => {
-      const titleText = card.querySelector('.reel-card-title')?.innerText.trim() || '';
+      const titleText = card.querySelector('.reel-card-title')?.innerText.trim().replace(' ↗', '') || '';
       const data = modalCaseStudies[titleText] || {
         title: titleText,
         category: 'Automotive Content Showcase',
         stats: [{ num: '100K+', lbl: 'VIEWS' }, { num: '90%', lbl: 'REACH' }],
-        desc: '<p>Strategi konten otomotif performa tinggi yang memadukan visual menarik dan copywriting informatif.</p>'
+        desc: '<p>Strategi konten otomotif performa tinggi yang memadukan visual menarik dan copywriting informatif.</p>',
+        link: 'https://instagram.com/galih.pratama11'
       };
 
       const statsHTML = data.stats.map(s => `
@@ -403,9 +433,12 @@ function initCaseModal() {
         <h2 class="modal-title">${data.title}</h2>
         <div class="modal-stats-grid">${statsHTML}</div>
         <div class="modal-desc">${data.desc}</div>
-        <div style="margin-top:20px;">
-          <a href="https://wa.me/6281282674715?text=Halo%20Galih,%20saya%20tertarik%20dengan%20campaign%20${encodeURIComponent(data.title)}" target="_blank" rel="noopener" class="btn-primary-blue">
-            Tanyakan Strategy Campaign Ini →
+        <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="${data.link}" target="_blank" rel="noopener" class="btn-primary-blue">
+            Buka Konten Asli Di Instagram / Threads ↗
+          </a>
+          <a href="https://wa.me/6281282674715?text=Halo%20Galih,%20saya%20tertarik%20dengan%20campaign%20${encodeURIComponent(data.title)}" target="_blank" rel="noopener" class="btn-outline-pill">
+            Diskusi Campaign Ini (WA)
           </a>
         </div>
       `;
