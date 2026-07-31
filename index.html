@@ -341,6 +341,62 @@
     </section>
 
     <!-- ==========================================================================
+         INTERACTIVE BRAND GROWTH CALCULATOR SECTION
+         ========================================================================== -->
+    <section class="calculator-section" id="calculator">
+      <div class="wrap">
+        <div class="calc-card-container">
+          
+          <div class="calc-left-info">
+            <span class="tag-blue-sm">INTERACTIVE TOOL</span>
+            <h2 class="section-title">Hitung Potensi Reach<br>Brand Kamu <span class="dot-blue">.</span></h2>
+            <p class="hero-subtext" style="font-size:0.95rem; margin-top:8px;">
+              Gunakan kalkulator interaktif ini untuk melihat perkiraan proyeksi jangkauan views dan pertumbuhan brand Anda dalam 30 hari kampanye.
+            </p>
+            
+            <div class="calc-controls-group">
+              <div class="control-label-sm">PILIH INDUSTRI BRAND:</div>
+              <div class="calc-industry-pills" id="calcIndustryPills">
+                <button class="ind-pill active" data-mult="1.2">Otomotif 🚗</button>
+                <button class="ind-pill" data-mult="1.0">F&amp;B 🍔</button>
+                <button class="ind-pill" data-mult="1.1">Lifestyle 🏎️</button>
+                <button class="ind-pill" data-mult="0.95">Commerce 🛍️</button>
+              </div>
+
+              <div class="control-label-sm" style="margin-top:20px;">
+                JUMLAH KONTEN / BULAN: <strong id="sliderValText" style="color:var(--blue-accent);">12 Post</strong>
+              </div>
+              <input type="range" id="postsSlider" min="4" max="30" value="12" step="2" class="custom-range-slider">
+            </div>
+          </div>
+
+          <div class="calc-right-results">
+            <div class="calc-res-box">
+              <div class="calc-res-label">ESTIMASI TOTAL VIEWS / BULAN</div>
+              <div class="calc-res-val" id="calcValViews">650,000+</div>
+            </div>
+
+            <div class="calc-res-box">
+              <div class="calc-res-label">PROYEKSI REACH NON-FOLLOWERS</div>
+              <div class="calc-res-val yellow" id="calcValReach">91.5%</div>
+            </div>
+
+            <div class="calc-res-box">
+              <div class="calc-res-label">ESTIMASI LEADS / INTERAKSI</div>
+              <div class="calc-res-val green" id="calcValLeads">14,200+</div>
+            </div>
+
+            <a href="https://wa.me/6281282674715?text=Halo%20Galih,%20saya%20tertarik%20diskusi%20strategi%20konten%20brand%20saya" target="_blank" rel="noopener" class="btn-primary-blue" id="btnCalcConsult" style="width:100%; justify-content:center; margin-top:10px;">
+              Diskusi Campaign Ini (WA)
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          BENTO GRID (ABOUT, SKILLS, TOOLS)
          ========================================================================== -->
     <section class="bento-section" id="skills">
@@ -547,6 +603,17 @@
       </div>
     </section>
   </main>
+
+  <!-- Interactive Modal Popup Container -->
+  <div class="modal-overlay" id="caseModalOverlay" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Modal">&times;</button>
+      <div id="modalBodyContent"></div>
+    </div>
+  </div>
+
+  <!-- Cursor Glow Follower -->
+  <div class="cursor-glow-dot" id="cursorGlow"></div>
 
   <!-- Script JS -->
   <script src="script.js"></script>

@@ -8,7 +8,183 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectsTabs();
   initContentFilter();
   initScrollAnimations();
+  initGrowthCalculator();
+  initCaseModal();
+  initCursorGlow();
 });
+
+/* --------------------------------------------------------------------------
+   6. Interactive Brand Growth Calculator
+   -------------------------------------------------------------------------- */
+function initGrowthCalculator() {
+  const pills = document.querySelectorAll('.ind-pill');
+  const slider = document.getElementById('postsSlider');
+  const sliderText = document.getElementById('sliderValText');
+  
+  const valViews = document.getElementById('calcValViews');
+  const valReach = document.getElementById('calcValReach');
+  const valLeads = document.getElementById('calcValLeads');
+
+  if (!slider || !valViews) return;
+
+  let activeMultiplier = 1.2;
+
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      pills.forEach(b => b.classList.remove('active'));
+      p.classList.add('active');
+      activeMultiplier = parseFloat(p.getAttribute('data-mult')) || 1.0;
+      updateCalculator();
+    });
+  });
+
+  slider.addEventListener('input', () => {
+    if (sliderText) sliderText.innerText = `${slider.value} Post`;
+    updateCalculator();
+  });
+
+  function updateCalculator() {
+    const posts = parseInt(slider.value, 10);
+    const estViews = Math.round(posts * 55000 * activeMultiplier);
+    const estLeads = Math.round(posts * 1200 * activeMultiplier);
+    const estReach = (88 + (posts * 0.3)).toFixed(1);
+
+    valViews.innerText = `${estViews.toLocaleString('id-ID')}+`;
+    valReach.innerText = `${Math.min(98.5, estReach)}%`;
+    valLeads.innerText = `${estLeads.toLocaleString('id-ID')}+`;
+  }
+
+  updateCalculator();
+}
+
+/* --------------------------------------------------------------------------
+   7. Interactive Case Study Modal Pop-up
+   -------------------------------------------------------------------------- */
+const modalCaseStudies = {
+  '5 KELEBIHAN WRAPPING': {
+    title: '5 KELEBIHAN WRAPPING MOBIL',
+    category: 'Edukasi & Branding Meta Auto Wrap',
+    stats: [
+      { num: '467K+', lbl: 'REELS VIEWS' },
+      { num: '92.4%', lbl: 'NON-FOLLOWERS' },
+      { num: '14.8K+', lbl: 'LIKES & SHARES' },
+      { num: '+320%', lbl: 'LEADS WA' }
+    ],
+    desc: '<p><strong>Overview:</strong> Video edukasi berdurasi 30 detik yang membahas 5 kelebihan utama wrapping stiker dibanding pengecatan ulang mobil. Konten ini dirancang dengan hook visual menarik dan teks red-headline yang kontras.</p><p><strong>Key Takeaways:</strong> Menghasilkan lonjakan penayangan organik 467.000+ views dan mengonversi 320% lebih banyak pesan masuk di WhatsApp sales Meta Auto Wrap.</p>'
+  },
+  'PINK LUCU GINI, BUKAN CAT LOH!': {
+    title: 'PINK LUCU GINI, BUKAN CAT LOH!',
+    category: 'Promosi Color Wrap Custom',
+    stats: [
+      { num: '140K+', lbl: 'IG VIEWS' },
+      { num: '88.5%', lbl: 'REACH ORGANIK' },
+      { num: '8.4K+', lbl: 'INTERAKSI' },
+      { num: '+180%', lbl: 'ENGAGEMENT' }
+    ],
+    desc: '<p><strong>Overview:</strong> Kampanye khusus mobil warna pink pastel custom wrap. Memperlihatkan estetika pengerjaan yang presisi serta perlindungan cat bawaan pabrik.</p>'
+  },
+  'BOSEN SAMA WARNA MOBIL STANDAR?': {
+    title: 'BOSEN SAMA WARNA MOBIL STANDAR?',
+    category: 'Carousel Solutions',
+    stats: [
+      { num: '47K+', lbl: 'REACH' },
+      { num: '94%', lbl: 'SAVED POSTS' },
+      { num: '5.2K+', lbl: 'LIKES' },
+      { num: '+140%', lbl: 'GROWTH' }
+    ],
+    desc: '<p><strong>Overview:</strong> Format carousel yang memadukan solusi pergantian warna mobil tanpa merusak garansi cat original.</p>'
+  },
+  'PET SERIES FREE COATING!': {
+    title: 'PET SERIES FREE COATING CAMPAIGN',
+    category: 'Promosi Limited Offer',
+    stats: [
+      { num: '13.6K+', lbl: 'TARGETED VIEWS' },
+      { num: '100%', lbl: 'QUALIFIED LEADS' },
+      { num: '45+', lbl: 'BOOKING ANTREAN' },
+      { num: '15.4%', lbl: 'CONVERSION' }
+    ],
+    desc: '<p><strong>Overview:</strong> Penawaran bonus coating gratis untuk setiap pemasangan stiker Pet Series. Berhasil mengisi slot antrean pengerjaan dalam 14 hari.</p>'
+  },
+  'MAZDA 3 HB KAKI-KAKI RUMUS A-Z': {
+    title: 'MAZDA 3 HB FITMENT & VELG GUIDE',
+    category: 'Otomax Store Educational Post',
+    stats: [
+      { num: '236K+', lbl: 'VIEWS' },
+      { num: '91.2%', lbl: 'REACH NON-FOLLOWERS' },
+      { num: '12K+', lbl: 'SAVED & SHARED' },
+      { num: '+220%', lbl: 'COMMUNITY ENGAGEMENT' }
+    ],
+    desc: '<p><strong>Overview:</strong> Panduan komprehensif pemilihan velg & ban khusus Mazda 3 Hatchback agar presisi dan tidak ngaco. Menjadi acuan edukasi otomotif favorit komunitas.</p>'
+  }
+};
+
+function initCaseModal() {
+  const modal = document.getElementById('caseModalOverlay');
+  const modalBody = document.getElementById('modalBodyContent');
+  const closeBtn = document.getElementById('modalCloseBtn');
+  const reelCards = document.querySelectorAll('.content-reel-card');
+
+  if (!modal || !modalBody || !closeBtn) return;
+
+  reelCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const titleText = card.querySelector('.reel-card-title')?.innerText.trim() || '';
+      const data = modalCaseStudies[titleText] || {
+        title: titleText,
+        category: 'Automotive Content Showcase',
+        stats: [{ num: '100K+', lbl: 'VIEWS' }, { num: '90%', lbl: 'REACH' }],
+        desc: '<p>Strategi konten otomotif performa tinggi yang memadukan visual menarik dan copywriting informatif.</p>'
+      };
+
+      const statsHTML = data.stats.map(s => `
+        <div class="modal-stat-box">
+          <span class="num">${s.num}</span>
+          <span class="lbl">${s.lbl}</span>
+        </div>
+      `).join('');
+
+      modalBody.innerHTML = `
+        <span class="modal-tag-gold">${data.category}</span>
+        <h2 class="modal-title">${data.title}</h2>
+        <div class="modal-stats-grid">${statsHTML}</div>
+        <div class="modal-desc">${data.desc}</div>
+        <div style="margin-top:20px;">
+          <a href="https://wa.me/6281282674715?text=Halo%20Galih,%20saya%20tertarik%20dengan%20campaign%20${encodeURIComponent(data.title)}" target="_blank" rel="noopener" class="btn-primary-blue">
+            Tanyakan Strategy Campaign Ini →
+          </a>
+        </div>
+      `;
+
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Glowing Cursor Follower
+   -------------------------------------------------------------------------- */
+function initCursorGlow() {
+  const glow = document.getElementById('cursorGlow');
+  if (!glow) return;
+
+  document.addEventListener('mousemove', (e) => {
+    glow.style.transform = `translate(${e.clientX - 140}px, ${e.clientY - 140}px)`;
+  });
+}
+
 
 /* --------------------------------------------------------------------------
    1. Header Glass Effect on Scroll

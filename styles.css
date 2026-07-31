@@ -1185,12 +1185,199 @@ button {
 }
 
 /* ==========================================================================
+   INTERACTIVE CALCULATOR & NOVELTY STYLES
+   ========================================================================== */
+.calculator-section {
+  padding: 60px 0;
+}
+
+.calc-card-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.control-label-sm {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-body);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.calc-industry-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ind-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-body);
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+}
+
+.ind-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-white);
+}
+
+.ind-pill.active {
+  background: var(--blue-primary);
+  border-color: var(--blue-accent);
+  color: #FFFFFF;
+}
+
+.custom-range-slider {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+  margin-top: 10px;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blue-accent);
+  box-shadow: 0 0 10px var(--blue-primary);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.custom-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.calc-right-results {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calc-res-box {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+}
+
+.calc-res-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.calc-res-val {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--blue-accent);
+}
+
+.calc-res-val.yellow { color: var(--chart-yellow); }
+.calc-res-val.green { color: var(--chart-green); }
+
+/* Glowing Cursor Follower */
+.cursor-glow-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+}
+
+/* Modal Internal Styling */
+.modal-tag-gold {
+  display: inline-block;
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--chart-yellow);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.modal-title {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--text-white);
+  margin-bottom: 16px;
+}
+
+.modal-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 16px 0 20px 0;
+}
+
+.modal-stat-box {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-stat-box .num {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--blue-accent);
+  display: block;
+}
+
+.modal-stat-box .lbl {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid,
   .projects-layout-grid,
   .showcase-grid-layout,
+  .calc-card-container,
   .bento-grid-3col {
     grid-template-columns: 1fr;
   }
@@ -1219,7 +1406,8 @@ button {
 
   .performance-stats-grid,
   .strategy-cards-grid,
-  .tools-badge-grid {
+  .tools-badge-grid,
+  .modal-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
