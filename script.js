@@ -51,8 +51,8 @@ const projectsData = {
       { title: 'Efisiensi Strategi', text: 'Komposisi distribusi penayangan menunjukkan performa organik yang sangat dominan, di mana sebanyak 83.3% dari total 2.422.912 tayangan murni digerakkan secara organik lewat penyusunan "hook" visual dan optimasi SEO konten, sementara porsi iklan berbayar (Ads) hanya berkontribusi minim sebesar 16.7%.' }
     ],
     samples: [
-      { img: 'assets/reel-mazda3hb.jpg', type: 'KONTEN ULASAN', caption: 'Video ulasan produk dan edukasi mendalam mengenai fitment kaki-kaki mobil. Dibuat khusus untuk memicu interaksi, menaikkan engagement, dan membangun trust audiens secara organik.' },
-      { img: 'assets/reel-buruan-deh.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial dengan penekanan pada promosi dan penawaran terukur. Menggunakan hook visual yang kuat, dirancang untuk kebutuhan distribusi paid ads demi meningkatkan penjualan langsung.' }
+      { img: 'assets/reel-mazda3hb.jpg', type: 'KONTEN ULASAN / EDUKASI', caption: 'Video ulasan produk dan edukasi mendalam mengenai fitment kaki-kaki mobil. Dibuat khusus untuk memicu interaksi, menaikkan engagement, dan membangun trust audiens secara organik.' },
+      { img: 'assets/reel-buruan-deh.jpg', type: 'KONTEN IKLAN ADS', caption: 'Video komersial dengan penekanan pada promosi dan penawaran terukur. Menggunakan hook visual yang kuat, dirancang untuk kebutuhan paid ads demi meningkatkan penjualan langsung.' }
     ]
   },
 
@@ -96,6 +96,12 @@ const projectsData = {
       { num: '14.8K+', lbl: 'TOTAL INTERAKSI' },
       { num: '+320%', lbl: 'LEADS WA' }
     ],
+    gridReels: [
+      { img: 'assets/reel-5kelebihan.jpg', title: '5 KELEBIHAN WRAPPING', views: '876' },
+      { img: 'assets/reel-pinklucu.jpg', title: 'PINK LUCU GINI, BUKAN CAT LOH!', views: '140K' },
+      { img: 'assets/reel-bosenwarna.jpg', title: 'BOSEN SAMA WARNA MOBIL STANDAR?', views: '47K' },
+      { img: 'assets/reel-petseries.jpg', title: 'PET SERIES FREE COATING!', views: '13.6K' }
+    ],
     strategyText: 'Strategi visual berfokus pada estetika tinggi, ketelitian pengerjaan wrapping, dan edukasi seputar perlindungan cat asli mobil. Penyampaian pesan berfokus pada daya tahan bahan Pet Series, daya tahan terhadap cuaca, dan hasil akhir yang presisi.',
     insights: [
       { title: 'Dominasi Reels Organik', text: '92.4% penayangan murni dari audiens non-followers yang tertarik dengan transformasi warna mobil.' },
@@ -104,10 +110,10 @@ const projectsData = {
       { title: 'Targeting Segmen Premium', text: 'Menjangkau pemilik mobil baru dan luxury sedan di area Jabodetabek.' }
     ],
     samples: [
-      { img: 'assets/reel-5kelebihan.jpg', type: '5 KELEBIHAN WRAPPING', caption: 'Video edukasi 30 detik yang membahas 5 kelebihan wrapping dibanding cat ulang.' },
-      { img: 'assets/reel-pinklucu.jpg', type: 'PINK LUCU GINI, BUKAN CAT LOH!', caption: 'Showcase color wrap custom pink pastel pada mobil listrik modern.' },
-      { img: 'assets/reel-bosenwarna.jpg', type: 'BOSEN SAMA WARNA MOBIL STANDAR?', caption: 'Carousel solusi ganti warna mobil tanpa merusak garansi cat ori.' },
-      { img: 'assets/reel-petseries.jpg', type: 'PET SERIES FREE COATING!', caption: 'Penawaran promosi bonus coating untuk pengerjaan wrap Pet Series.' }
+      { img: 'assets/reel-5kelebihan.jpg', type: 'KONTEN EDUKASI & BRANDING', caption: 'Video edukasi 30 detik yang membahas 5 kelebihan wrapping dibanding cat ulang.' },
+      { img: 'assets/reel-pinklucu.jpg', type: 'KONTEN PROMOSI CUSTOM COLOR', caption: 'Showcase color wrap custom pink pastel pada mobil listrik modern.' },
+      { img: 'assets/reel-bosenwarna.jpg', type: 'KONTEN CAROUSEL SOLUSI', caption: 'Carousel solusi ganti warna mobil tanpa merusak garansi cat ori.' },
+      { img: 'assets/reel-petseries.jpg', type: 'KONTEN PROMOSI ADS', caption: 'Penawaran promosi bonus coating untuk pengerjaan wrap Pet Series.' }
     ]
   }
 };
@@ -132,6 +138,36 @@ function renderProjectCard(key) {
     </div>
   ` : '';
 
+  // Grid reels HTML if available (Meta Auto Wrap special layout)
+  const gridReelsHTML = data.gridReels ? `
+    <div class="project-top-row" style="margin-bottom:24px;">
+      <div class="content-cards-scroll" style="grid-template-columns:1fr 1fr; gap:12px;">
+        ${data.gridReels.map(r => `
+          <div class="content-reel-card" style="height:170px;">
+            <img src="${r.img}" alt="${r.title}">
+            <div class="reel-card-overlay">
+              <span class="reel-views-pill">▶ ${r.views}</span>
+              <span class="reel-card-title">${r.title}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div>
+        <span class="cs-brand-sub">${data.brandSub}</span>
+        <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
+        <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
+        <p class="project-desc-text">${data.desc}</p>
+      </div>
+    </div>
+  ` : `
+    <div>
+      <span class="cs-brand-sub">${data.brandSub}</span>
+      <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
+      <p class="project-desc-text">${data.desc}</p>
+    </div>
+  `;
+
   // Insights bullet list HTML
   const insightsHTML = data.insights.map(ins => `
     <li><strong>${ins.title}:</strong> ${ins.text}</li>
@@ -149,12 +185,7 @@ function renderProjectCard(key) {
   `).join('');
 
   container.innerHTML = `
-    <div>
-      <span class="cs-brand-sub">${data.brandSub}</span>
-      <h2 class="brand-main-title" style="margin-top:2px;">${data.title}</h2>
-      <p style="font-size:0.85rem; color:var(--text-muted); font-weight:600; margin-bottom:12px;">${data.subtitle}</p>
-      <p class="project-desc-text">${data.desc}</p>
-    </div>
+    ${gridReelsHTML}
 
     <div class="cs-section-label">KPI (REAL TIME PERFORMA)</div>
     <div class="cs-kpi-grid">${kpiHTML}</div>
