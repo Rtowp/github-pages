@@ -39,6 +39,159 @@
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Detailed Case Study Layouts (Matching Reference Screenshots) */
+.cs-brand-sub {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--blue-accent);
+  text-transform: uppercase;
+}
+
+.cs-section-label {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--blue-accent);
+  text-transform: uppercase;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 6px;
+}
+
+/* KPI Multi-Box Grid */
+.cs-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cs-kpi-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.cs-kpi-num {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+
+.cs-kpi-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Insights Bullet List */
+.cs-insights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cs-insights-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.cs-insights-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue-accent);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.cs-insights-list strong {
+  color: var(--text-white);
+}
+
+/* Sample Content Type Cards Grid */
+.cs-samples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.cs-sample-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-sample-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cs-sample-body {
+  padding: 14px;
+}
+
+.cs-sample-type {
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--blue-accent);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cs-sample-caption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Light Cream Theme Override (Matching Reference Mockups) */
+body.light-cream-mode {
+  --bg-primary: #F8F5EE;
+  --bg-secondary: #F0EBE1;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #FAFAFA;
+  --bg-card-hover: #F5F0E6;
+
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --border-blue: rgba(180, 83, 9, 0.3);
+  --border-gold: rgba(180, 83, 9, 0.5);
+
+  --blue-primary: #1E1E1E;
+  --blue-hover: #333333;
+  --blue-accent: #B45309;
+  --blue-glow: rgba(180, 83, 9, 0.15);
+
+  --text-white: #1C1917;
+  --text-body: #44403C;
+  --text-muted: #78716C;
+
+  --chart-blue: #B45309;
+  --chart-yellow: #D97706;
+}
+
 /* Reset & Base Setup */
 *, *::before, *::after {
   box-sizing: border-box;
