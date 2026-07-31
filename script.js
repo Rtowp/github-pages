@@ -52,7 +52,7 @@ const projectsData = {
     role: 'Social Media Specialist',
     desc: 'Mengelola strategi konten end-to-end untuk Otomax.store sebagai brand utama. Berfokus pada konten edukasi otomotif, tips perawatan mobil, promosi produk, dan branding untuk meningkatkan engagement dan brand awareness.',
     tags: ['Content Strategy', 'Copywriting', 'Design', 'Video Editing', 'Analytics'],
-    image: 'assets/automotive-collage.png',
+    image: 'assets/otomax-dashboard.jpg',
     stats: [
       { num: '2,4 Juta', lbl: 'Total Views' },
       { num: '83,3K', lbl: 'Akun Tercapai' },
@@ -71,7 +71,7 @@ const projectsData = {
     role: 'Social Media Specialist',
     desc: 'Strategi campaign darurat 24 jam untuk layanan velg & ban panggilan. Mengoptimalkan Threads & Reels untuk jangkauan organik tinggi dan mendatangkan leads instan ke tim operasional.',
     tags: ['Campaign Strategy', 'Viral Content', 'Emergency Branding', 'Threads Organic'],
-    image: 'assets/automotive-collage.png',
+    image: 'assets/otozip-threads.jpg',
     stats: [
       { num: '908K+', lbl: 'Threads Views' },
       { num: '91.8%', lbl: 'Non-Followers' },
@@ -90,7 +90,7 @@ const projectsData = {
     role: 'Content Creator & Strategist',
     desc: 'Branding & visual showcase untuk wrapping & detailing mobil premium. Menampilkan kualitas pengerjaan Pet Series & PPF Protection dengan estetika warna tinggi.',
     tags: ['Premium Branding', 'Visual Reels', 'Car Wrapping', 'Color Aesthetics'],
-    image: 'assets/automotive-collage.png',
+    image: 'assets/reel-5kelebihan.jpg',
     stats: [
       { num: '500K+', lbl: 'Total Impressions' },
       { num: '78.5%', lbl: 'Audience Reach' },
