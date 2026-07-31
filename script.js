@@ -137,8 +137,8 @@ function renderProjectCard(key) {
   const container = document.getElementById('activeProjectCard');
   if (!data || !container) return;
 
-  // Special layout for Meta Auto Wrap (matching Reference Image 3)
-  if (key === 'metawrap' || (data.gridReels && !data.kpi)) {
+  // EXPLICIT: Meta Auto Wrap Layout (No KPI, No Strategy, No Breakdown, No Sample Content Type)
+  if (key === 'metawrap') {
     container.innerHTML = `
       <div class="project-top-row" style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:start;">
         <div class="content-cards-scroll" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
@@ -162,7 +162,7 @@ function renderProjectCard(key) {
     return;
   }
 
-  // KPI boxes HTML
+  // Otomax and Otozip Layout (With KPI, Strategy, Breakdown, Samples)
   const kpiHTML = data.kpi ? data.kpi.map(k => `
     <div class="cs-kpi-card">
       <div class="cs-kpi-num">${k.num}</div>
@@ -170,19 +170,16 @@ function renderProjectCard(key) {
     </div>
   `).join('') : '';
 
-  // Dashboard image HTML if available
   const dashHTML = data.dashboardImg ? `
     <div style="margin:20px 0;">
       <img src="${data.dashboardImg}" alt="Dashboard Insights" style="width:100%; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
     </div>
   ` : '';
 
-  // Insights bullet list HTML
   const insightsHTML = data.insights ? data.insights.map(ins => `
     <li><strong>${ins.title}:</strong> ${ins.text}</li>
   `).join('') : '';
 
-  // Samples grid HTML
   const samplesHTML = data.samples ? data.samples.map(s => `
     <div class="cs-sample-card">
       <img src="${s.img}" alt="${s.type}" class="cs-sample-img">
